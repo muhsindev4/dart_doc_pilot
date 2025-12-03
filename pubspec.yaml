@@ -1,6 +1,8 @@
 name: dart_doc_pilot
 description: A powerful Flutter project documentation generator with rich UI and CLI experience
 version: 1.0.0
+repository: https://github.com/muhsindev4/dart_doc_pilot.git
+homepage: https://github.com/muhsindev4/dart_doc_pilot.git
 environment:
   sdk: ^3.9.2
 
