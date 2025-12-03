@@ -2,10 +2,8 @@
 
 [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Banner](https://raw.githubusercontent.com/muhsindev4/dart_doc_pilot/main/img.png)](https://flutter.dev)
 
-<p align="center">
-  <img src="https://github.com/muhsindev4/dart_doc_pilot/blob/main/img.png" width="100%" />
-</p>
 
 **A powerful, feature-rich Flutter project documentation generator with a beautiful UI and impressive CLI experience.**
 
