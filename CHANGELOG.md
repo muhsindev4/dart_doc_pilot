@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.0] - 2024-12-02
+### Updated
+- Updated document 
 
 ## [1.0.0] - 2024-12-02
 
@@ -59,3 +62,5 @@
 - Documentation coverage reports
 - Custom template support
 - Annotation-based configuration
+
+
