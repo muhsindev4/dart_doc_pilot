@@ -22,17 +22,17 @@ class DartDocPilotCLI {
       ..addFlag('version', abbr: 'v', negatable: false, help: 'Show version');
 
     // Add build subcommand options
-    // final buildCommand = parser.commands['build']!
-    //   ..addOption(
-    //     'format',
-    //     abbr: 'f',
-    //     allowed: ['json', 'markdown', 'html'],
-    //     defaultsTo: 'html',
-    //   )
-    //   ..addOption('output', abbr: 'o', defaultsTo: 'docs');
-    //
-    // final serveCommand = parser.commands['serve']!
-    //   ..addOption('port', abbr: 'p', defaultsTo: '8080');
+    parser.commands['build']!
+      ..addOption(
+        'format',
+        abbr: 'f',
+        allowed: ['json', 'markdown', 'html'],
+        defaultsTo: 'html',
+      )
+      ..addOption('output', abbr: 'o', defaultsTo: 'docs');
+
+    parser.commands['serve']!
+      ..addOption('port', abbr: 'p', defaultsTo: '8080');
 
     try {
       final results = parser.parse(arguments);

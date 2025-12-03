@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.3] - 2024-12-04
+
+### Updated
+- Enable build and serve command options
 
 ## [1.0.3] - 2024-12-03
 
