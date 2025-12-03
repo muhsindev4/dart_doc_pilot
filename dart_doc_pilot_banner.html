@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dart_doc_pilot Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0d1117;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .banner {
+            width: 1280px;
+            height: 640px;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animated background pattern */
+        .pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(30deg, #58a6ff 12%, transparent 12.5%, transparent 87%, #58a6ff 87.5%, #58a6ff),
+                linear-gradient(150deg, #58a6ff 12%, transparent 12.5%, transparent 87%, #58a6ff 87.5%, #58a6ff),
+                linear-gradient(30deg, #58a6ff 12%, transparent 12.5%, transparent 87%, #58a6ff 87.5%, #58a6ff),
+                linear-gradient(150deg, #58a6ff 12%, transparent 12.5%, transparent 87%, #58a6ff 87.5%, #58a6ff);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+        }
+
+        /* Gradient orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: #58a6ff;
+            top: -200px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: #3fb950;
+            bottom: -150px;
+            left: -100px;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: #d29922;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        /* Icon container */
+        .icon-container {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #58a6ff, #79c0ff);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(88, 166, 255, 0.3);
+            position: relative;
+        }
+
+        .icon-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #58a6ff, #79c0ff, #3fb950);
+            border-radius: 34px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+        }
+
+        .icon {
+            font-size: 80px;
+        }
+
+        /* Title */
+        .title {
+            font-size: 80px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e6edf3, #8b949e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: 32px;
+            color: #8b949e;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            color: #8b949e;
+            background: rgba(88, 166, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 24px;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+        }
+
+        /* Footer badge */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .badge {
+            background: rgba(88, 166, 255, 0.15);
+            color: #58a6ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(88, 166, 255, 0.3);
+        }
+
+        /* Floating elements */
+        .float-element {
+            position: absolute;
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: #8b949e;
+            font-family: 'SF Mono', monospace;
+            backdrop-filter: blur(10px);
+        }
+
+        .float-1 {
+            top: 80px;
+            left: 60px;
+            transform: rotate(-5deg);
+        }
+
+        .float-2 {
+            top: 120px;
+            right: 80px;
+            transform: rotate(5deg);
+        }
+
+        .float-3 {
+            bottom: 100px;
+            left: 100px;
+            transform: rotate(-3deg);
+        }
+
+        .dart-logo {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 40px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <!-- Background effects -->
+        <div class="pattern"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <!-- Dart logo -->
+        <div class="dart-logo">🎯</div>
+
+        <!-- Floating code snippets -->
+        <div class="float-element float-1">
+            /// {@category Widgets}
+        </div>
+        <div class="float-element float-2">
+            class CustomButton { }
+        </div>
+        <div class="float-element float-3">
+            dart_doc_pilot build
+        </div>
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="icon-container">
+                <div class="icon">📚</div>
+            </div>
+
+            <h1 class="title">dart_doc_pilot</h1>
+            <p class="subtitle">Flutter Documentation Generator</p>
+
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <span>Fast Parsing</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎨</span>
+                    <span>Beautiful UI</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔍</span>
+                    <span>Smart Search</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer badges -->
+        <div class="footer">
+            <div class="badge">Dark Mode</div>
+            <div class="badge">Category Support</div>
+            <div class="badge">Live Server</div>
+        </div>
+    </div>
+
+    <script>
+        // Add some subtle animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const floatElements = document.querySelectorAll('.float-element');
+            floatElements.forEach((el, index) => {
+                el.style.animation = `float ${3 + index}s ease-in-out infinite`;
+            });
+        });
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(-5deg); }
+                50% { transform: translateY(-10px) rotate(-3deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

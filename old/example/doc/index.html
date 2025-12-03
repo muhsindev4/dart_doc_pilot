@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="highlight-theme">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dart.min.js"></script>
+  <style>
+    * {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.dark .card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Stat Card */
+.stat-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+/* Code Blocks */
+.code-block {
+  position: relative;
+  background: #1f2937;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.code-block code {
+  color: #e5e7eb;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  color: white;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.code-block:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.dark .table-container {
+  border-color: #374151;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.doc-table th {
+  background: #f9fafb;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .doc-table th {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #374151;
+}
+
+.doc-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.dark .doc-table td {
+  border-color: #374151;
+}
+
+.doc-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.dark .doc-table tbody tr:hover {
+  background: #1f2937;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.badge-blue {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.dark .badge-blue {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+.badge-green {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.dark .badge-green {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.badge-purple {
+  background: #e9d5ff;
+  color: #6b21a8;
+}
+
+.dark .badge-purple {
+  background: #581c87;
+  color: #d8b4fe;
+}
+
+.badge-orange {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.dark .badge-orange {
+  background: #7c2d12;
+  color: #fdba74;
+}
+
+.badge-red {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.dark .badge-red {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.dark .breadcrumb {
+  color: #9ca3af;
+}
+
+.breadcrumb a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Method Item */
+.method-item {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.dark .method-item {
+  background: #111827;
+  border-color: #374151;
+}
+
+/* Sidebar Links */
+.sidebar-link {
+  transition: all 0.2s;
+}
+
+.class-link {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+  color: #4b5563;
+}
+
+.dark .class-link {
+  color: #9ca3af;
+}
+
+.class-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.dark .class-link:hover {
+  background: #374151;
+  color: #f3f4f6;
+}
+
+/* Search Results */
+.search-result-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.dark .search-result-item {
+  border-color: #374151;
+}
+
+.search-result-item:hover {
+  background: #f9fafb;
+}
+
+.dark .search-result-item:hover {
+  background: #1f2937;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-content,
+.subcategory-content {
+  animation: slideDown 0.2s ease-out;
+}
+
+/* Prose Styles for Markdown */
+.prose {
+  color: #374151;
+  max-width: 65ch;
+}
+
+.dark .prose {
+  color: #d1d5db;
+}
+
+.prose p {
+  margin: 1em 0;
+  line-height: 1.75;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose code {
+  background: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: monospace;
+}
+
+.dark .prose code {
+  background: #374151;
+}
+
+.prose a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose ul, .prose ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin: 0.5em 0;
+}
+
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+  
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-4">
+          <button id="sidebar-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white">Documentation</h1>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <!-- Search -->
+          <div class="relative hidden md:block">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search..."
+              class="w-64 px-4 py-2 pl-10 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all"
+            />
+            <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <div id="search-results" class="absolute top-full mt-2 w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl max-h-96 overflow-y-auto hidden"></div>
+          </div>
+          
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <svg id="theme-icon-light" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <svg id="theme-icon-dark" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex max-w-screen-2xl mx-auto">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed lg:sticky top-16 left-0 z-40 w-72 h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 overflow-y-auto transition-transform duration-300 -translate-x-full lg:translate-x-0">
+      <div class="p-4">
+        <div class="space-y-2">
+      <a href="index.html" class="sidebar-link flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        <span class="font-medium">Home</span>
+      </a>
+    
+</div>
+
+      </div>
+    </aside>
+
+    <!-- Backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 lg:p-8 min-h-screen">
+      <div class="max-w-5xl mx-auto">
+              <div class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Documentation</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">API Documentation</p>
+      </div>
+    
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="stat-card bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+          <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">0</div>
+          <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">Classes</div>
+        </div>
+        <div class="stat-card bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+          <div class="text-3xl font-bold text-green-600 dark:text-green-400">0</div>
+          <div class="text-sm text-green-600 dark:text-green-400 font-medium">Methods</div>
+        </div>
+        <div class="stat-card bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800">
+          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">0</div>
+          <div class="text-sm text-purple-600 dark:text-purple-400 font-medium">Enums</div>
+        </div>
+        <div class="stat-card bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800">
+          <div class="text-3xl font-bold text-orange-600 dark:text-orange-400">0</div>
+          <div class="text-sm text-orange-600 dark:text-orange-400 font-medium">Extensions</div>
+        </div>
+      </div>
+    
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  hljs.highlightAll();
+  initTheme();
+  initSidebar();
+  initSearch();
+});
+
+// Theme Management
+function initTheme() {
+  const theme = localStorage.getItem('theme') || 'light';
+  setTheme(theme);
+  
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+}
+
+function setTheme(theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  localStorage.setItem('theme', theme);
+  
+  const highlightTheme = theme === 'dark' 
+    ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css'
+    : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css';
+  document.getElementById('highlight-theme').href = highlightTheme;
+}
+
+// Sidebar Management
+function initSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  const toggle = document.getElementById('sidebar-toggle');
+  
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      backdrop.classList.toggle('hidden');
+    });
+  }
+  
+  if (backdrop) {
+    backdrop.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      backdrop.classList.add('hidden');
+    });
+  }
+}
+
+function toggleCategory(categoryId) {
+  const content = document.getElementById('category-' + categoryId);
+  const arrow = document.getElementById('arrow-' + categoryId);
+  
+  content.classList.toggle('hidden');
+  arrow.classList.toggle('rotate-180');
+}
+
+function toggleSubCategory(subCategoryId) {
+  const content = document.getElementById('subcategory-' + subCategoryId);
+  const arrow = document.getElementById('arrow-' + subCategoryId);
+  
+  content.classList.toggle('hidden');
+  arrow.classList.toggle('rotate-180');
+}
+
+// Search Functionality
+let searchData = [];
+
+async function initSearch() {
+  try {
+    const response = await fetch('search.json');
+    searchData = await response.json();
+  } catch (e) {
+    console.error('Failed to load search data:', e);
+  }
+  
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  
+  if (searchInput && searchResults) {
+    let debounceTimer;
+    
+    searchInput.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+          searchResults.classList.add('hidden');
+          return;
+        }
+        
+        const results = searchData
+          .filter(item => 
+            item.name.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query)
+          )
+          .slice(0, 10);
+        
+        displaySearchResults(results, searchResults);
+      }, 300);
+    });
+    
+    // Close search results when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.classList.add('hidden');
+      }
+    });
+  }
+}
+
+function displaySearchResults(results, container) {
+  if (results.length === 0) {
+    container.innerHTML = '<div class="p-4 text-gray-500 dark:text-gray-400">No results found</div>';
+    container.classList.remove('hidden');
+    return;
+  }
+  
+  const html = results.map(item => {
+    const typeColors = {
+      class: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+      method: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+      enum: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
+      extension: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200'
+    };
+    
+    return `
+      <a href="${item.url}" class="search-result-item block">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-semibold text-gray-900 dark:text-white">${item.name}</span>
+          <span class="px-2 py-0.5 text-xs font-medium rounded ${typeColors[item.type]}">${item.type}</span>
+        </div>
+        ${item.description ? `<div class="text-sm text-gray-600 dark:text-gray-400">${truncate(item.description, 80)}</div>` : ''}
+        ${item.category ? `<div class="text-xs text-gray-500 dark:text-gray-500 mt-1">${item.category}</div>` : ''}
+      </a>
+    `;
+  }).join('');
+  
+  container.innerHTML = html;
+  container.classList.remove('hidden');
+}
+
+function truncate(text, length) {
+  if (text.length <= length) return text;
+  return text.substring(0, length) + '...';
+}
+
+// Copy Code to Clipboard
+function copyCode(button) {
+  const codeBlock = button.nextElementSibling;
+  const code = codeBlock.textContent;
+  
+  navigator.clipboard.writeText(code).then(() => {
+    const originalHTML = button.innerHTML;
+    button.innerHTML = `
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+      </svg>
+    `;
+    
+    setTimeout(() => {
+      button.innerHTML = originalHTML;
+    }, 2000);
+  });
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+  // Cmd/Ctrl + K for search
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    document.getElementById('search-input')?.focus();
+  }
+  
+  // Escape to close search
+  if (e.key === 'Escape') {
+    document.getElementById('search-results')?.classList.add('hidden');
+    document.getElementById('search-input')?.blur();
+  }
+});
+
+  </script>
+</body>
+</html>
