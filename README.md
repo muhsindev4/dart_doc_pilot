@@ -4,7 +4,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 
 <p align="center">
-  <img src="./img.png" width="100%" />
+  <img src="https://github.com/muhsindev4/dart_doc_pilot/blob/main/img.png" width="100%" />
 </p>
 
 **A powerful, feature-rich Flutter project documentation generator with a beautiful UI and impressive CLI experience.**
